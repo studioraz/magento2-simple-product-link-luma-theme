@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model;
+namespace SR\SimpleProductLinkLumaTheme\Model;
 
 use Magento\Catalog\Model\Product;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule\CollectionFactory as RuleCollectionFactory;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule\CollectionFactory as RuleCollectionFactory;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
 
 /**
  * Resolves the highest-priority active LinkRule that matches a given product.

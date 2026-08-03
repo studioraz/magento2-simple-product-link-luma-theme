@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Controller\Adminhtml\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Controller\Adminhtml\LinkRule;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-use SR\SimpleProductLink\Model\LinkRuleFactory;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule as LinkRuleResource;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleFactory;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule as LinkRuleResource;
 
 class Delete extends Action implements HttpPostActionInterface
 {
-    public const ADMIN_RESOURCE = 'SR_SimpleProductLink::linkrule';
+    public const ADMIN_RESOURCE = 'SR_SimpleProductLinkLumaTheme::linkrule';
 
     private LinkRuleFactory $linkRuleFactory;
     private LinkRuleResource $linkRuleResource;

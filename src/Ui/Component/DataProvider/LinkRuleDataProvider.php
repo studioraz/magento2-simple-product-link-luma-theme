@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Ui\Component\DataProvider;
+namespace SR\SimpleProductLinkLumaTheme\Ui\Component\DataProvider;
 
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\AbstractDataProvider;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule\CollectionFactory;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule\CollectionFactory;
 
 class LinkRuleDataProvider extends AbstractDataProvider
 {

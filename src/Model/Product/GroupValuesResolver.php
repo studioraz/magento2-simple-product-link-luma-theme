@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\Product;
+namespace SR\SimpleProductLinkLumaTheme\Model\Product;
 
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
 use Magento\Eav\Model\Config as EavConfig;
 use Magento\Framework\App\ResourceConnection;
-use SR\SimpleProductLink\Setup\Patch\Data\AddSimpleProductGroupAttribute;
+use SR\SimpleProductLinkLumaTheme\Setup\Patch\Data\AddSimpleProductGroupAttribute;
 use Zend_Db;
 
 class GroupValuesResolver

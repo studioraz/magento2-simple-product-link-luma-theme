@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Api\Data;
+namespace SR\SimpleProductLinkLumaTheme\Api\Data;
 
 interface LinkRuleInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\Cache;
+namespace SR\SimpleProductLinkLumaTheme\Model\Cache;
 
 class GroupCacheTag
 {

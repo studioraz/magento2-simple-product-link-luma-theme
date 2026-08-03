@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Controller\Adminhtml\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Controller\Adminhtml\LinkRule;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
-use SR\SimpleProductLink\Model\LinkRuleFactory;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleFactory;
 
 class Edit extends Action implements HttpGetActionInterface
 {
-    public const ADMIN_RESOURCE = 'SR_SimpleProductLink::linkrule';
+    public const ADMIN_RESOURCE = 'SR_SimpleProductLinkLumaTheme::linkrule';
 
     private PageFactory $resultPageFactory;
     private LinkRuleFactory $linkRuleFactory;
@@ -47,7 +47,7 @@ class Edit extends Action implements HttpGetActionInterface
         $this->registry->register('current_link_rule', $model);
 
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('SR_SimpleProductLink::linkrule');
+        $resultPage->setActiveMenu('SR_SimpleProductLinkLumaTheme::linkrule');
         $resultPage->getConfig()->getTitle()->prepend(
             $ruleId ? __('Edit Rule: %1', $model->getName()) : __('New Link Rule')
         );

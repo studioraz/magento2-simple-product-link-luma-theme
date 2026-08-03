@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\VirtualAttribute;
+namespace SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute;
 
-use SR\SimpleProductLink\Api\VirtualAttributeInterface;
+use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
 
 /**
  * Collects all registered VirtualAttributeInterface implementations.
  *
  * Register additional attributes via di.xml argument injection.
  * The pool is empty by default — if no third-party module registers anything,
- * SR_SimpleProductLink behaves exactly as before.
+ * SR_SimpleProductLinkLumaTheme behaves exactly as before.
  */
 class Pool
 {

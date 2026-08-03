@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\ResourceModel;
+namespace SR\SimpleProductLinkLumaTheme\Model\ResourceModel;
 
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use SR\SimpleProductLink\Api\Data\LinkRuleInterface;
+use SR\SimpleProductLinkLumaTheme\Api\Data\LinkRuleInterface;
 
 class LinkRule extends AbstractDb
 {

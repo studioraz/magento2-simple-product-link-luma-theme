@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Controller\Adminhtml\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Controller\Adminhtml\LinkRule;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -11,7 +11,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Index extends Action implements HttpGetActionInterface
 {
-    public const ADMIN_RESOURCE = 'SR_SimpleProductLink::linkrule';
+    public const ADMIN_RESOURCE = 'SR_SimpleProductLinkLumaTheme::linkrule';
 
     private PageFactory $resultPageFactory;
 
@@ -24,7 +24,7 @@ class Index extends Action implements HttpGetActionInterface
     public function execute(): \Magento\Framework\View\Result\Page
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('SR_SimpleProductLink::linkrule');
+        $resultPage->setActiveMenu('SR_SimpleProductLinkLumaTheme::linkrule');
         $resultPage->getConfig()->getTitle()->prepend(__('Simple Product Link Rules'));
         return $resultPage;
     }

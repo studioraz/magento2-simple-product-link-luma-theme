@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Api;
+namespace SR\SimpleProductLinkLumaTheme\Api;
 
-use SR\SimpleProductLink\Api\Data\LinkRuleInterface;
+use SR\SimpleProductLinkLumaTheme\Api\Data\LinkRuleInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;

@@ -31,7 +31,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>SR_SimpleProductLink::linkrule</aclResource>
+        <aclResource>SR_SimpleProductLinkLumaTheme::linkrule</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
                       name="sr_simpleproductlink_linkrule_listing_data_source">
             <settings>
@@ -86,7 +86,7 @@
             </settings>
         </column>
         <column name="variation_attributes"
-                class="SR\SimpleProductLink\Ui\Component\Listing\Column\VariationAttributes">
+                class="SR\SimpleProductLinkLumaTheme\Ui\Component\Listing\Column\VariationAttributes">
             <settings>
                 <filter>false</filter>
                 <sortable>false</sortable>

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Test\Unit\Model\Source;
+namespace SR\SimpleProductLinkLumaTheme\Test\Unit\Model\Source;
 
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Model\Config as EavConfig;
 use Magento\Eav\Model\Entity\Attribute\AbstractAttribute;
 use PHPUnit\Framework\TestCase;
-use SR\SimpleProductLink\Api\VirtualAttributeInterface;
-use SR\SimpleProductLink\Model\Source\VariationAttributes;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
+use SR\SimpleProductLinkLumaTheme\Model\Source\VariationAttributes;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
 
 class VariationAttributesTest extends TestCase
 {

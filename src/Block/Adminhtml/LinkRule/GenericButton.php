@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Block\Adminhtml\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Block\Adminhtml\LinkRule;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\UrlInterface;

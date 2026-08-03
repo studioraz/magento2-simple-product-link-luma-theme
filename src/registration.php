@@ -2,4 +2,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'SR_SimpleProductLink', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'SR_SimpleProductLinkLumaTheme', __DIR__);

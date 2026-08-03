@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\ResourceModel\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use SR\SimpleProductLink\Api\Data\LinkRuleInterface;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule as LinkRuleResource;
+use SR\SimpleProductLinkLumaTheme\Api\Data\LinkRuleInterface;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule as LinkRuleResource;
 
 class Collection extends AbstractCollection
 {

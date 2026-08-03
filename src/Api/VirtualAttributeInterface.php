@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Api;
+namespace SR\SimpleProductLinkLumaTheme\Api;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 
@@ -10,7 +10,7 @@ use Magento\Catalog\Api\Data\ProductInterface;
  * Represents a virtual variation attribute whose value is computed at runtime.
  *
  * Implement this interface and register the implementation in the Pool via di.xml
- * to expose a computed attribute as a selectable variation axis in SR_SimpleProductLink rules.
+ * to expose a computed attribute as a selectable variation axis in SR_SimpleProductLinkLumaTheme rules.
  *
  * The attribute code must not collide with any real EAV attribute code.
  * Recommended convention: use a module-prefixed code, e.g. "sr_baseprice_amount_unit".

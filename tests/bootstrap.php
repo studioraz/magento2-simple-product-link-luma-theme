@@ -2,20 +2,18 @@
 
 declare(strict_types=1);
 
-// Use the Magento project vendor autoloader which provides Magento framework classes.
-// This lets PHPUnit mock Magento classes without needing them installed as composer deps.
-$magentoVendor = '/Users/itay/PhpstormProjects/magento/vendor/autoload.php';
-if (file_exists($magentoVendor)) {
-    require_once $magentoVendor;
-} else {
-    // Fallback: local vendor autoloader (e.g. in CI with magento/framework installed)
-    require_once __DIR__ . '/../vendor/autoload.php';
+// Prefer the Magento project autoloader when this package is checked out under modules/.
+$magentoVendor = dirname(__DIR__, 4) . '/vendor/autoload.php';
+if (!file_exists($magentoVendor)) {
+    // Fallback for a standalone checkout with local Composer dependencies.
+    $magentoVendor = __DIR__ . '/../vendor/autoload.php';
 }
+require_once $magentoVendor;
 
 // Register our module source as a PSR-4 namespace,
 // with fallback to the test stubs directory for DI-generated classes.
 spl_autoload_register(function (string $class): void {
-    $prefix = 'SR\\SimpleProductLink\\';
+    $prefix = 'SR\\SimpleProductLinkLumaTheme\\';
     if (!str_starts_with($class, $prefix)) {
         return;
     }

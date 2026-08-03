@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Block\Product\View;
+namespace SR\SimpleProductLinkLumaTheme\Block\Product\View;
 
 use Magento\Catalog\Helper\Data as CatalogHelper;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use SR\SimpleProductLink\Model\Cache\GroupCacheTag;
-use SR\SimpleProductLink\Setup\Patch\Data\AddSimpleProductGroupAttribute;
+use SR\SimpleProductLinkLumaTheme\Model\Cache\GroupCacheTag;
+use SR\SimpleProductLinkLumaTheme\Setup\Patch\Data\AddSimpleProductGroupAttribute;
 
 class LinkedProducts extends Template implements IdentityInterface
 {

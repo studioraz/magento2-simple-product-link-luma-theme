@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Block\Adminhtml\Edit\Tab;
+namespace SR\SimpleProductLinkLumaTheme\Block\Adminhtml\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Backend\Block\Widget\Form\Renderer\Fieldset;
@@ -12,8 +12,8 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Rule\Block\Conditions as ConditionsBlock;
 use Magento\Rule\Model\Condition\AbstractCondition;
 use Magento\Ui\Component\Layout\Tabs\TabInterface;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\LinkRuleFactory;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleFactory;
 
 class Conditions extends Generic implements TabInterface
 {

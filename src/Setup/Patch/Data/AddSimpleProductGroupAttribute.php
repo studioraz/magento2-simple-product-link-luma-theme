@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Setup\Patch\Data;
+namespace SR\SimpleProductLinkLumaTheme\Setup\Patch\Data;
 
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;

@@ -2,18 +2,18 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="SR_SimpleProductLink::main"
+        <add id="SR_SimpleProductLinkLumaTheme::main"
              parent="SR_Base::srbase"
-             module="SR_SimpleProductLink"
+             module="SR_SimpleProductLinkLumaTheme"
              title="Simple Product Link"
              sortOrder="60"
-             resource="SR_SimpleProductLink::main"/>
-        <add id="SR_SimpleProductLink::linkrule"
-             parent="SR_SimpleProductLink::main"
-             module="SR_SimpleProductLink"
+             resource="SR_SimpleProductLinkLumaTheme::main"/>
+        <add id="SR_SimpleProductLinkLumaTheme::linkrule"
+             parent="SR_SimpleProductLinkLumaTheme::main"
+             module="SR_SimpleProductLinkLumaTheme"
              title="Link Rules"
              sortOrder="10"
              action="sr_simpleproductlink/linkrule"
-             resource="SR_SimpleProductLink::linkrule"/>
+             resource="SR_SimpleProductLinkLumaTheme::linkrule"/>
     </menu>
 </config>

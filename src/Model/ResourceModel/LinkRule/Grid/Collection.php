@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\ResourceModel\LinkRule\Grid;
+namespace SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule\Grid;
 
 use Magento\Framework\Api\Search\AggregationInterface;
 use Magento\Framework\Api\Search\SearchResultInterface;
@@ -14,7 +14,7 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
 use Psr\Log\LoggerInterface;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule as LinkRuleResource;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule as LinkRuleResource;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
     implements SearchResultInterface

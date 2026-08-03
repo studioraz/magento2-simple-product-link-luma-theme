@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\ResourceModel\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule;
 
 /**
  * Test stub for the DI-generated CollectionFactory.

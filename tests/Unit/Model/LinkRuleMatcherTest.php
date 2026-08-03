@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Test\Unit\Model;
+namespace SR\SimpleProductLinkLumaTheme\Test\Unit\Model;
 
 use Magento\Catalog\Model\Product;
 use PHPUnit\Framework\TestCase;
-use SR\SimpleProductLink\Api\VirtualAttributeInterface;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\LinkRuleMatcher;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule\Collection as RuleCollection;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule\CollectionFactory;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleMatcher;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule\Collection as RuleCollection;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule\CollectionFactory;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
 
 class LinkRuleMatcherTest extends TestCase
 {

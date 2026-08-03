@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model;
+namespace SR\SimpleProductLinkLumaTheme\Model;
 
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use SR\SimpleProductLink\Api\Data\LinkRuleInterface;
-use SR\SimpleProductLink\Api\LinkRuleRepositoryInterface;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule as LinkRuleResource;
+use SR\SimpleProductLinkLumaTheme\Api\Data\LinkRuleInterface;
+use SR\SimpleProductLinkLumaTheme\Api\LinkRuleRepositoryInterface;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule as LinkRuleResource;
 
 class LinkRuleRepository implements LinkRuleRepositoryInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Plugin\Magento\InventoryCache\Model;
+namespace SR\SimpleProductLinkLumaTheme\Plugin\Magento\InventoryCache\Model;
 
 use Magento\InventoryCache\Model\FlushCacheByProductIds;
-use SR\SimpleProductLink\Model\Cache\GroupCacheCleaner;
-use SR\SimpleProductLink\Model\Product\GroupValuesResolver;
+use SR\SimpleProductLinkLumaTheme\Model\Cache\GroupCacheCleaner;
+use SR\SimpleProductLinkLumaTheme\Model\Product\GroupValuesResolver;
 
 class FlushCacheByProductIdsGroupCacheInvalidator
 {

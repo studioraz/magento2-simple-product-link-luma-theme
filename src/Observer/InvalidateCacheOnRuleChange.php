@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Observer;
+namespace SR\SimpleProductLinkLumaTheme\Observer;
 
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\Event\Observer;

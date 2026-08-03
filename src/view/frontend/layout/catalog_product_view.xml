@@ -2,15 +2,15 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="product.info.form">
-            <block class="SR\SimpleProductLink\Block\Product\View\LinkedProducts"
-                   name="product.linked.variants2"
-                   template="SR_SimpleProductLink::product/view/linked-products.phtml"
-                   before="product.info.options.wrapper">
+        <referenceContainer name="product.info.main">
+            <block class="SR\SimpleProductLinkLumaTheme\Block\Product\View\LinkedProducts"
+                   name="product.linked.variants.luma"
+                   template="SR_SimpleProductLinkLumaTheme::product/view/linked-products.phtml"
+                   after="product.info.price">
                 <arguments>
-                    <argument name="view_model" xsi:type="object">SR\SimpleProductLink\ViewModel\LinkedProducts</argument>
+                    <argument name="view_model" xsi:type="object">SR\SimpleProductLinkLumaTheme\ViewModel\LinkedProducts</argument>
                 </arguments>
             </block>
-        </referenceBlock>
+        </referenceContainer>
     </body>
 </page>

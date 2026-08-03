@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Ui\Component\Listing\Column;
+namespace SR\SimpleProductLinkLumaTheme\Ui\Component\Listing\Column;
 
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
-use SR\SimpleProductLink\Model\ResourceModel\LinkRule as LinkRuleResource;
+use SR\SimpleProductLinkLumaTheme\Model\ResourceModel\LinkRule as LinkRuleResource;
 
 class VariationAttributes extends Column
 {

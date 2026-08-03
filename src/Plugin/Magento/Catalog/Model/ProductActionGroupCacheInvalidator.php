@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Plugin\Magento\Catalog\Model;
+namespace SR\SimpleProductLinkLumaTheme\Plugin\Magento\Catalog\Model;
 
 use Magento\Catalog\Model\Product\Action;
-use SR\SimpleProductLink\Model\Cache\GroupCacheCleaner;
-use SR\SimpleProductLink\Model\Product\GroupValuesResolver;
+use SR\SimpleProductLinkLumaTheme\Model\Cache\GroupCacheCleaner;
+use SR\SimpleProductLinkLumaTheme\Model\Product\GroupValuesResolver;
 
 class ProductActionGroupCacheInvalidator
 {

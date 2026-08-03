@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Test\Unit\Model\VirtualAttribute;
+namespace SR\SimpleProductLinkLumaTheme\Test\Unit\Model\VirtualAttribute;
 
 use PHPUnit\Framework\TestCase;
-use SR\SimpleProductLink\Api\VirtualAttributeInterface;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
 
 class PoolTest extends TestCase
 {

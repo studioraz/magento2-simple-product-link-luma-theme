@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Test\Unit\ViewModel;
+namespace SR\SimpleProductLinkLumaTheme\Test\Unit\ViewModel;
 
 use Magento\Catalog\Helper\Image as ImageHelper;
 use Magento\Catalog\Model\Product;
@@ -16,13 +16,14 @@ use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Swatches\Helper\Data as SwatchHelper;
 use Magento\Swatches\Helper\Media as SwatchMediaHelper;
+use Magento\Swatches\Model\Swatch;
 use PHPUnit\Framework\TestCase;
-use SR\SimpleProductLink\Api\VirtualAttributeInterface;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\LinkRuleMatcher;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
-use SR\SimpleProductLink\Setup\Patch\Data\AddSimpleProductGroupAttribute;
-use SR\SimpleProductLink\ViewModel\LinkedProducts;
+use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleMatcher;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Setup\Patch\Data\AddSimpleProductGroupAttribute;
+use SR\SimpleProductLinkLumaTheme\ViewModel\LinkedProducts;
 
 /**
  * Unit tests for the virtual attribute path in LinkedProducts.
@@ -145,9 +146,9 @@ class LinkedProductsTest extends TestCase
         $this->assertNotNull($currentOption);
         $this->assertSame('3 kg', $currentOption['label']);
 
-        // All options use SWATCH_TYPE_NONE
+        // Virtual values render as textual swatches.
         foreach ($group['options'] as $option) {
-            $this->assertSame(LinkedProducts::SWATCH_TYPE_NONE, $option['swatch_type']);
+            $this->assertSame(Swatch::SWATCH_TYPE_TEXTUAL, $option['swatch_type']);
         }
     }
 

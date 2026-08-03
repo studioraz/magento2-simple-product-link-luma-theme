@@ -13,10 +13,10 @@
 
     <settings>
         <buttons>
-            <button name="back" class="SR\SimpleProductLink\Block\Adminhtml\LinkRule\BackButton"/>
-            <button name="delete" class="SR\SimpleProductLink\Block\Adminhtml\LinkRule\DeleteButton"/>
-            <button name="save_and_continue" class="SR\SimpleProductLink\Block\Adminhtml\LinkRule\SaveAndContinueButton"/>
-            <button name="save" class="SR\SimpleProductLink\Block\Adminhtml\LinkRule\SaveButton"/>
+            <button name="back" class="SR\SimpleProductLinkLumaTheme\Block\Adminhtml\LinkRule\BackButton"/>
+            <button name="delete" class="SR\SimpleProductLinkLumaTheme\Block\Adminhtml\LinkRule\DeleteButton"/>
+            <button name="save_and_continue" class="SR\SimpleProductLinkLumaTheme\Block\Adminhtml\LinkRule\SaveAndContinueButton"/>
+            <button name="save" class="SR\SimpleProductLinkLumaTheme\Block\Adminhtml\LinkRule\SaveButton"/>
         </buttons>
         <namespace>sr_simpleproductlink_linkrule_form</namespace>
         <dataScope>data</dataScope>
@@ -34,7 +34,7 @@
         <settings>
             <submitUrl path="sr_simpleproductlink/linkrule/save"/>
         </settings>
-        <dataProvider class="SR\SimpleProductLink\Ui\Component\DataProvider\LinkRuleDataProvider"
+        <dataProvider class="SR\SimpleProductLinkLumaTheme\Ui\Component\DataProvider\LinkRuleDataProvider"
                       name="sr_simpleproductlink_linkrule_form_data_source">
             <settings>
                 <requestFieldName>rule_id</requestFieldName>
@@ -126,7 +126,7 @@
                     <formElements>
                         <select>
                             <settings>
-                                <options class="SR\SimpleProductLink\Model\Source\VariationAttributes"/>
+                                <options class="SR\SimpleProductLinkLumaTheme\Model\Source\VariationAttributes"/>
                             </settings>
                         </select>
                     </formElements>
@@ -180,7 +180,7 @@
                 <componentType>fieldset</componentType>
             </wrapper>
         </settings>
-        <block class="SR\SimpleProductLink\Block\Adminhtml\Edit\Tab\Conditions"
+        <block class="SR\SimpleProductLinkLumaTheme\Block\Adminhtml\Edit\Tab\Conditions"
                name="linkrule_edit_tab_conditions"/>
     </htmlContent>
 </form>

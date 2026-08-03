@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model;
+namespace SR\SimpleProductLinkLumaTheme\Model;
 
 use Magento\Framework\Data\FormFactory;
 use Magento\Framework\Model\Context;
@@ -11,9 +11,9 @@ use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Registry;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Rule\Model\AbstractModel;
-use SR\SimpleProductLink\Api\Data\LinkRuleInterface;
+use SR\SimpleProductLinkLumaTheme\Api\Data\LinkRuleInterface;
 use Magento\Rule\Model\Action\CollectionFactory as ActionCollectionFactory;
-use SR\SimpleProductLink\Model\Rule\Condition\CombineFactory;
+use SR\SimpleProductLinkLumaTheme\Model\Rule\Condition\CombineFactory;
 
 class LinkRule extends AbstractModel implements LinkRuleInterface
 {

@@ -5,7 +5,7 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Catalog::catalog">
-                    <resource id="SR_SimpleProductLink::linkrule"
+                    <resource id="SR_SimpleProductLinkLumaTheme::linkrule"
                               title="Simple Product Link Rules"
                               sortOrder="50"/>
                 </resource>

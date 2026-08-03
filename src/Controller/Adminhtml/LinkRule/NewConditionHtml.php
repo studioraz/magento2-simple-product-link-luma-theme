@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Controller\Adminhtml\LinkRule;
+namespace SR\SimpleProductLinkLumaTheme\Controller\Adminhtml\LinkRule;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -10,12 +10,12 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Rule\Model\Condition\AbstractCondition;
 use Magento\Rule\Model\Condition\ConditionInterface;
-use SR\SimpleProductLink\Model\LinkRule;
-use SR\SimpleProductLink\Model\LinkRuleFactory;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
+use SR\SimpleProductLinkLumaTheme\Model\LinkRuleFactory;
 
 class NewConditionHtml extends Action implements HttpPostActionInterface, HttpGetActionInterface
 {
-    public const ADMIN_RESOURCE = 'SR_SimpleProductLink::linkrule';
+    public const ADMIN_RESOURCE = 'SR_SimpleProductLinkLumaTheme::linkrule';
 
     private LinkRuleFactory $linkRuleFactory;
 

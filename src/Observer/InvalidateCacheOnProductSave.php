@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Observer;
+namespace SR\SimpleProductLinkLumaTheme\Observer;
 
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use SR\SimpleProductLink\Model\Cache\GroupCacheCleaner;
-use SR\SimpleProductLink\Setup\Patch\Data\AddSimpleProductGroupAttribute;
+use SR\SimpleProductLinkLumaTheme\Model\Cache\GroupCacheCleaner;
+use SR\SimpleProductLinkLumaTheme\Setup\Patch\Data\AddSimpleProductGroupAttribute;
 
 class InvalidateCacheOnProductSave implements ObserverInterface
 {

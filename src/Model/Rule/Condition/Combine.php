@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\Rule\Condition;
+namespace SR\SimpleProductLinkLumaTheme\Model\Rule\Condition;
 
 class Combine extends \Magento\Rule\Model\Condition\Combine
 {

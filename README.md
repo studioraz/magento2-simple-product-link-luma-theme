@@ -1,8 +1,10 @@
-# Mageno 2 Simple Product Link — Variant Switcher for Simple Products
+# Magento 2 Simple Product Link Luma Theme
 
-A custom Magento 2 module that links independent simple products together and renders an interactive variant switcher on the Product Detail Page (PDP). Unlike Magento's native configurable product approach, every product remains a standalone simple product while the storefront delivers a seamless variation-selection experience.
+A standalone Magento 2 module that links independent simple products together and renders a variation switcher on Luma/Blank-based Product Detail Pages. Unlike Magento's native configurable product approach, every product remains a standalone simple product.
 
-> **Designed for Hyva-based storefronts** — uses Tailwind CSS utility classes and Alpine.js for frontend interactivity.
+> **Designed for Luma/Blank-based storefronts** — uses Magento layout XML, PHTML, native Swatches APIs, and module LESS. It does not depend on `studioraz/magento2-simple-product-link`.
+
+This package is a standalone alternative to the Hyvä-oriented module, not a companion package. Do not enable both implementations in the same Magento installation because they intentionally use the same product attribute, admin route, event prefix, and database tables.
 
 ---
 
@@ -32,7 +34,7 @@ A custom Magento 2 module that links independent simple products together and re
 - **Multiple variation attributes** per rule (e.g., Color + Size) with drag-and-drop ordering.
 - **Color, image, and text swatches** using Magento's native Swatches module.
 - **Out-of-stock indicators** — diagonal strikethrough + tooltip, respects catalog display setting.
-- **Zero theme modifications** — the variant switcher injects itself after the price block via plugin.
+- **Zero theme modifications** — layout XML inserts the variant switcher after the product price.
 - **Group-aware cache invalidation** — rule changes, product group changes, and stock updates automatically purge the correct FPC entries.
 
 ---
@@ -51,7 +53,7 @@ A custom Magento 2 module that links independent simple products together and re
 |---------------------|-------------------------------|
 | Magento             | 2.4.x                        |
 | PHP                 | Per Magento 2.4 requirements  |
-| Theme               | Hyva (Tailwind + Alpine.js)   |
+| Theme               | Magento Luma/Blank or a compatible child theme |
 | `SR_Base` module    | Must be installed and enabled |
 
 ---
@@ -61,8 +63,8 @@ A custom Magento 2 module that links independent simple products together and re
 ### Via Composer (private repository)
 
 ```bash
-composer require sr/module-simple-product-link
-bin/magento module:enable SR_SimpleProductLink
+composer require studioraz/magento2-simple-product-link-luma-theme
+bin/magento module:enable SR_SimpleProductLinkLumaTheme
 bin/magento setup:upgrade
 bin/magento setup:di:compile
 bin/magento cache:flush
@@ -70,11 +72,11 @@ bin/magento cache:flush
 
 ### Manual installation
 
-1. Copy the module to `app/code/SR/SimpleProductLink/`.
+1. Copy the module to `app/code/SR/SimpleProductLinkLumaTheme/`.
 2. Run:
 
 ```bash
-bin/magento module:enable SR_SimpleProductLink
+bin/magento module:enable SR_SimpleProductLinkLumaTheme
 bin/magento setup:upgrade
 bin/magento setup:di:compile
 bin/magento cache:flush
@@ -119,7 +121,7 @@ Navigate to **Admin → Studio Raz → Simple Product Link → Link Rules** and 
 | Product is not a simple product (configurable, bundle, etc.) | No switcher displayed |
 | No active rule matches the product | No switcher displayed |
 
-When conditions are met, the switcher renders below the price with one row per variation attribute.
+When conditions are met, the switcher renders after the price in `product.info.main`, with one row per variation attribute.
 
 ### Swatch Support
 
@@ -127,7 +129,8 @@ When conditions are met, the switcher renders below the price with one row per v
 |-----------------|-----------|
 | **Color swatch** | Colored square with the configured background color. |
 | **Image swatch** | Square with the swatch image as background. |
-| **Text / Dropdown** | Text label inside a bordered box. |
+| **Text swatch** | Text label inside a bordered option. |
+| **Regular select** | Linked-product thumbnail with the option label exposed through accessible text and tooltip. |
 
 ### Out-of-Stock Handling
 
@@ -151,7 +154,7 @@ The module implements a three-layer cache strategy:
 
 1. **Rule changes** (create / update / delete) — Flushes the full-page cache entirely via observers on `studioraz_simpleproductlink_rule_save_after` and `_delete_after`.
 2. **Product group changes** — When a product's `simple_product_group` value is modified, all sibling products in both the **old** and **new** groups are invalidated.
-3. **Cache tag propagation** — The `ProductIdentitiesExtender` plugin adds sibling product cache tags to each product's identities, so Varnish / FPC purges cascade to all related variant pages.
+3. **Cache tag propagation** — The switcher block exposes a group cache tag, so Varnish / FPC invalidation can purge related variant pages together.
 
 ---
 

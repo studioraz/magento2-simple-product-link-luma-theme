@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SR\SimpleProductLink\Model\Source;
+namespace SR\SimpleProductLinkLumaTheme\Model\Source;
 
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Model\Config as EavConfig;
 use Magento\Framework\Data\OptionSourceInterface;
-use SR\SimpleProductLink\Model\VirtualAttribute\Pool;
+use SR\SimpleProductLinkLumaTheme\Model\VirtualAttribute\Pool;
 
 class VariationAttributes implements OptionSourceInterface
 {
