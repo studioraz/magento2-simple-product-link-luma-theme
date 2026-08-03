@@ -33,7 +33,7 @@ spl_autoload_register(function (string $class): void {
     if (file_exists($stubFile)) {
         require $stubFile;
     }
-});
+}, true, true);
 
 // Provide a stub for Magento's translation function when running standalone unit tests
 if (!function_exists('__')) {

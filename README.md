@@ -1,6 +1,6 @@
 # Magento 2 Simple Product Link Luma Theme
 
-A standalone Magento 2 module that links independent simple products together and renders a variation switcher on Luma/Blank-based Product Detail Pages. Unlike Magento's native configurable product approach, every product remains a standalone simple product.
+A standalone Magento 2 module that links independent products together and renders a variation switcher on Luma/Blank-based Product Detail Pages. Every linked item remains a standalone catalog product with its own PDP and native product-type behavior.
 
 > **Designed for Luma/Blank-based storefronts** — uses Magento layout XML, PHTML, native Swatches APIs, and module LESS. It does not depend on `studioraz/magento2-simple-product-link`.
 
@@ -29,7 +29,7 @@ This package is a standalone alternative to the Hyvä-oriented module, not a com
 
 ## Features
 
-- **Group simple products** via a shared text attribute — no configurable products required.
+- **Group independent products** via a shared text attribute. Simple, virtual, downloadable, configurable, grouped, and bundle products are supported.
 - **Admin-managed Link Rules** with variation attributes, catalog-rule conditions, and priority.
 - **Multiple variation attributes** per rule (e.g., Color + Size) with drag-and-drop ordering.
 - **Color, image, and text swatches** using Magento's native Swatches module.
@@ -44,6 +44,8 @@ This package is a standalone alternative to the Hyvä-oriented module, not a com
 1. Products are grouped by assigning the same value to the `simple_product_group` attribute.
 2. An admin-defined **Link Rule** specifies which variation attributes to display and which products the rule applies to (via catalog-rule conditions).
 3. On the storefront, the module's plugin appends a variant switcher block immediately after the price. Each variant is a clickable link to the sibling product's PDP.
+
+For composite products, the switcher links whole parent products. It does not replace Magento's configurable, grouped, downloadable, or bundle option renderers and does not carry selected child options between PDPs.
 
 ---
 
@@ -103,7 +105,7 @@ Navigate to **Admin → Studio Raz → Simple Product Link → Link Rules** and 
 
 ### 2. Assign Products to a Group
 
-1. Open a simple product in **Admin → Catalog → Products**.
+1. Open a product in **Admin → Catalog → Products**.
 2. Set the **Simple Product Group** attribute to a shared group identifier (any arbitrary string, e.g., `blue-widget-family`).
 3. Repeat for every sibling product in the group. Ensure each product has a **different** value for the variation attribute(s) defined in the matching rule.
 
@@ -118,7 +120,7 @@ Navigate to **Admin → Studio Raz → Simple Product Link → Link Rules** and 
 | Product has no `simple_product_group` value | No switcher displayed |
 | Group has only 1 product | No switcher displayed |
 | An attribute has only 1 unique option across group products | That attribute row is hidden |
-| Product is not a simple product (configurable, bundle, etc.) | No switcher displayed |
+| Product type is simple, virtual, downloadable, configurable, grouped, or bundle | Product can participate in the switcher |
 | No active rule matches the product | No switcher displayed |
 
 When conditions are met, the switcher renders after the price in `product.info.main`, with one row per variation attribute.
@@ -154,7 +156,8 @@ The module implements a three-layer cache strategy:
 
 1. **Rule changes** (create / update / delete) — Flushes the full-page cache entirely via observers on `studioraz_simpleproductlink_rule_save_after` and `_delete_after`.
 2. **Product group changes** — When a product's `simple_product_group` value is modified, all sibling products in both the **old** and **new** groups are invalidated.
-3. **Cache tag propagation** — The switcher block exposes a group cache tag, so Varnish / FPC invalidation can purge related variant pages together.
+3. **Composite stock changes** — When a child product's stock changes, the resolver also includes its configurable, grouped, or bundle parents and invalidates the linked groups assigned to those parents.
+4. **Cache tag propagation** — The switcher block exposes a group cache tag, so Varnish / FPC invalidation can purge related variant pages together.
 
 ---
 

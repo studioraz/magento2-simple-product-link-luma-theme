@@ -1,6 +1,6 @@
 {
     "name": "studioraz/magento2-simple-product-link-luma-theme",
-    "description": "Links simple products together and renders their variations on Luma-based product pages",
+    "description": "Links independent Magento products together and renders their variations on Luma-based product pages",
     "type": "magento2-module",
     "license": "MIT",
     "autoload": {

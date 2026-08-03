@@ -9,7 +9,6 @@ use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\ResourceModel\Product\Collection as ProductCollection;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
-use Magento\CatalogInventory\Api\StockRegistryInterface;
 use Magento\Eav\Model\Config as EavConfig;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\Store;
@@ -17,6 +16,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Swatches\Helper\Data as SwatchHelper;
 use Magento\Swatches\Helper\Media as SwatchMediaHelper;
 use Magento\Swatches\Model\Swatch;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use SR\SimpleProductLinkLumaTheme\Api\VirtualAttributeInterface;
 use SR\SimpleProductLinkLumaTheme\Model\LinkRule;
@@ -46,7 +46,12 @@ class LinkedProductsTest extends TestCase
         $collection->method('addWebsiteFilter')->willReturnSelf();
         $collection->method('setVisibility')->willReturnSelf();
         $collection->method('addAttributeToSelect')->willReturnSelf();
-        $collection->method('addAttributeToFilter')->willReturnSelf();
+        $collection->method('addAttributeToFilter')->willReturnCallback(
+            function (string $attributeCode) use ($collection): ProductCollection {
+                $this->assertNotSame('type_id', $attributeCode);
+                return $collection;
+            }
+        );
         $collection->method('setOrder')->willReturnSelf();
         $collection->method('getItems')->willReturn($groupProducts);
 
@@ -55,11 +60,6 @@ class LinkedProductsTest extends TestCase
 
         $matcherMock = $this->createMock(LinkRuleMatcher::class);
         $matcherMock->method('findForProduct')->willReturn($rule);
-
-        $stockRegistry = $this->createMock(StockRegistryInterface::class);
-        $stockItem = $this->createMock(\Magento\CatalogInventory\Model\Stock\Item::class);
-        $stockItem->method('getIsInStock')->willReturn(true);
-        $stockRegistry->method('getStockItem')->willReturn($stockItem);
 
         $visibility = $this->createMock(Visibility::class);
         $visibility->method('getVisibleInCatalogIds')->willReturn([4]);
@@ -75,7 +75,6 @@ class LinkedProductsTest extends TestCase
             $collectionFactory,
             $matcherMock,
             $this->createMock(SwatchHelper::class),
-            $stockRegistry,
             $this->createMock(EavConfig::class),
             $this->createMock(SwatchMediaHelper::class),
             $scopeConfig,
@@ -86,10 +85,17 @@ class LinkedProductsTest extends TestCase
         );
     }
 
-    private function buildProduct(int $id, string $groupValue, ?string $virtualValue): Product
-    {
+    private function buildProduct(
+        int $id,
+        string $groupValue,
+        ?string $virtualValue,
+        string $typeId = 'simple',
+        bool $isSalable = true,
+    ): Product {
         $product = $this->createMock(Product::class);
         $product->method('getId')->willReturn($id);
+        $product->method('getTypeId')->willReturn($typeId);
+        $product->method('isSalable')->willReturn($isSalable);
         $product->method('getData')->willReturnCallback(function (string $key) use ($groupValue) {
             return $key === AddSimpleProductGroupAttribute::ATTRIBUTE_CODE ? $groupValue : null;
         });
@@ -102,6 +108,45 @@ class LinkedProductsTest extends TestCase
         $rule = $this->createMock(LinkRule::class);
         $rule->method('getVariationAttributeCodes')->willReturn([['attribute_code' => $attributeCode]]);
         return $rule;
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function supportedProductTypesProvider(): array
+    {
+        return [
+            'simple' => ['simple'],
+            'virtual' => ['virtual'],
+            'downloadable' => ['downloadable'],
+            'configurable' => ['configurable'],
+            'grouped' => ['grouped'],
+            'bundle' => ['bundle'],
+        ];
+    }
+
+    #[DataProvider('supportedProductTypesProvider')]
+    public function testLinkedProductsSupportEveryProductType(string $typeId): void
+    {
+        $virtual = $this->createMock(VirtualAttributeInterface::class);
+        $virtual->method('getAttributeCode')->willReturn('sr_virtual');
+        $virtual->method('getFrontendLabel')->willReturn('Variant');
+        $virtual->method('getDependsOnAttributeCodes')->willReturn([]);
+        $virtual->method('getValueForProduct')->willReturnCallback(
+            static fn(Product $product): string => sprintf('Option %d', (int)$product->getId())
+        );
+
+        $products = [
+            $this->buildProduct(1, 'group1', 'Option 1', $typeId),
+            $this->buildProduct(2, 'group1', 'Option 2', $typeId),
+        ];
+
+        $viewModel = $this->buildViewModel(new Pool([$virtual]), $products, $this->buildRule('sr_virtual'));
+        $data = $viewModel->getLinkedProductData($products[0]);
+
+        $this->assertNotNull($data);
+        $this->assertCount(2, $data[0]['options']);
+        $this->assertTrue($data[0]['options'][0]['is_salable']);
     }
 
     public function testVirtualAttributeGroupBuiltCorrectly(): void
