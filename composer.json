@@ -1,0 +1,28 @@
+{
+    "name": "studioraz/magento2-simple-product-link-luma-theme",
+    "description": "Links simple products together and renders their variations on the PDP",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SR\\SimpleProductLink\\": "src"
+        },
+        "files": [
+            "src/registration.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SR\\SimpleProductLink\\Test\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "magento/framework": ">=103",
+        "studioraz/magento2-base": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    }
+}
+
